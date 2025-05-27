@@ -65,7 +65,7 @@ const RainyNightPolicyView = () => {
 					access your camera, microphone, location, or any other sensitive
 					features.
 				</p>
-				<div style={itemTitleStyle}>5. Children's Privacy</div>
+				<div style={itemTitleStyle}>5. Children&apos;s Privacy</div>
 				<p>
 					Our app is not intended for children under the age of 13. We do not
 					knowingly collect any information from children.

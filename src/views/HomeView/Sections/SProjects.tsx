@@ -170,7 +170,7 @@ const SProjects: FC = () => {
 							</span>
 						</div>
 						<div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-							{group.projects.map((proj, pidx) => (
+							{group.projects.map((proj) => (
 								<motion.div
 									key={proj.title}
 									whileHover={{

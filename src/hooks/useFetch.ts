@@ -39,7 +39,7 @@ const useFetch = <T>(
 			}
 		}
 		fetchData()
-	}, [...dependencies, refetch])
+	}, [fetchFunction, ...dependencies, refetch])
 
 	return {res, loading, error, refetchData, isAuthError}
 }

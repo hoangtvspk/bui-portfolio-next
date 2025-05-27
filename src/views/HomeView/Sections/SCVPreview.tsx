@@ -5,6 +5,7 @@ import {motion} from 'framer-motion'
 import {FiDownload} from 'react-icons/fi'
 import cvPage1 from '@/assets/images/cv_page1.png'
 import cvPage2 from '@/assets/images/cv_page2.png'
+import Image from 'next/image'
 
 const SCVPreview: React.FC = () => {
 	const cvUrl = '/assets/pdfs/cv.pdf'
@@ -43,9 +44,11 @@ const SCVPreview: React.FC = () => {
 							transition={{type: 'spring', stiffness: 300}}
 							className='flex-1 cursor-pointer'
 						>
-							<img
-								src={src.src}
+							<Image
+								src={src}
 								alt={`CV page ${idx + 1}`}
+								width={400}
+								height={565}
 								className='w-full rounded-xl shadow-2xl border-2 border-transparent hover:border-blue-500 transition-all duration-300 bg-black object-contain'
 							/>
 						</motion.div>

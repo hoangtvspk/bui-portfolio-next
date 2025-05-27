@@ -24,6 +24,7 @@ import scshot3 from '@/assets/images/scshot_3.png'
 import scshotCoding from '@/assets/images/scshot_coding.png'
 import panda from '@/assets/images/profile_panda.png'
 import {motion} from 'framer-motion'
+import Image from 'next/image'
 
 const skills = [
 	{label: 'Flutter', icon: <SiFlutter className='text-blue-400' />},
@@ -164,60 +165,75 @@ const SProfile: FC = () => {
 					<div className='flex-1 flex flex-col items-center justify-center relative min-w-[320px]'>
 						<div className='relative flex flex-col items-center'>
 							<div className='absolute top-4 left-4  h-30  md:h-40 md:w-50 object-cover bg-transparent'>
-								<img
-									src={panda.src}
+								<Image
+									src={panda}
 									alt='Tran Van Hoang Avatar'
-									className='h-full w-full object-contain relative rotate-[-40deg] '
+									className='h-full w-full object-contain  rotate-[-40deg] '
 								/>
 							</div>
-							<div className='absolute top-0 left-1/3  h-56 w-28 md:h-72 md:w-50 border-4 border-blue-500 shadow-2xl object-cover bg-gray-800'>
-								<img
-									src={scshotCoding.src}
+							<div className='absolute top-0 left-1/3  h-50 w-28 md:h-70 md:w-50 border-4 border-blue-500 shadow-2xl object-cover bg-gray-800'>
+								<Image
+									src={scshotCoding}
 									alt='Tran Van Hoang Avatar'
-									className='h-full w-full object-cover relative '
+									className='h-full w-full object-cover  '
 								/>
 							</div>
-							<img
-								src={avatar.src}
+							<Image
+								src={avatar}
 								alt='Tran Van Hoang Avatar'
-								className='h-56 md:h-72  relative z-10'
+								className='h-56 md:h-72 w-auto  z-10'
 							/>
 							{/* Screenshots dưới avatar */}
-							<div className='relative w-full flex justify-center mt-[-32px] md:mt-[-48px]'>
-								<motion.img
-									src={scshot1.src}
-									alt='screenshot 1'
-									className='w-24 md:w-32 rounded-xl shadow-2xl border-2 border-gray-800 rotate-[-10deg] -translate-x-9 z-0 bg-[#23272f]'
+							<motion.div className='relative w-full flex justify-center mt-[-32px] md:mt-[-48px] z-11'>
+								<motion.div
 									animate={{y: [-12, 12, -12]}}
 									transition={{
 										duration: 2,
 										repeat: Infinity,
 										ease: 'easeInOut',
 									}}
-								/>
-								<motion.img
-									src={scshot2.src}
-									alt='screenshot 2'
-									className='w-24 md:w-32 rounded-xl shadow-2xl border-2 border-gray-800 rotate-[8deg] z-10 bg-[#23272f] mx-2 translate-y-2'
+								>
+									<Image
+										src={scshot1}
+										alt='screenshot 1'
+										width={128}
+										height={128}
+										className='w-24 md:w-32 rounded-xl shadow-2xl border-2 border-gray-800 rotate-[-10deg] -translate-x-9 z-20 bg-[#23272f]'
+									/>
+								</motion.div>
+								<motion.div
 									animate={{y: [14, -14, 14]}}
 									transition={{
 										duration: 3,
 										repeat: Infinity,
 										ease: 'easeInOut',
 									}}
-								/>
-								<motion.img
-									src={scshot3.src}
-									alt='screenshot 3'
-									className='w-24 md:w-32 rounded-xl shadow-2xl border-2 border-gray-800 rotate-[14deg] translate-x-8 z-0 bg-[#23272f]'
+								>
+									<Image
+										src={scshot2}
+										alt='screenshot 2'
+										width={128}
+										height={128}
+										className='w-24 md:w-32 rounded-xl shadow-2xl border-2 border-gray-800 rotate-[8deg] z-20 bg-[#23272f] mx-2 translate-y-2'
+									/>
+								</motion.div>
+								<motion.div
 									animate={{y: [-10, 10, -10]}}
 									transition={{
 										duration: 2.5,
 										repeat: Infinity,
 										ease: 'easeInOut',
 									}}
-								/>
-							</div>
+								>
+									<Image
+										src={scshot3}
+										alt='screenshot 3'
+										width={128}
+										height={128}
+										className='w-24 md:w-32 rounded-xl shadow-2xl border-2 border-gray-800 rotate-[14deg] translate-x-8 z-0 bg-[#23272f]'
+									/>
+								</motion.div>
+							</motion.div>
 						</div>
 					</div>
 				</div>
