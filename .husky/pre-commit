@@ -1,3 +1,0 @@
-bun tsc
-bun lint-staged
-bun run build

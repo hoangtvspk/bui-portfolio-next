@@ -13,7 +13,6 @@
 		"start:staging": "env-cmd -f .env.staging next start --port 8000",
 		"start:dev": "env-cmd -f .env.dev next start --port 8000",
 		"lint": "next lint",
-		"prepare": "husky",
 		"prebuild": "rimraf .next"
 	},
 	"dependencies": {
@@ -52,7 +51,6 @@
 		"@types/sanitize-html": "^2.13.0",
 		"eslint": "^9.23.0",
 		"eslint-config-next": "^15.2.4",
-		"husky": "^9.1.7",
 		"lint-staged": "^15.5.0",
 		"postcss": "^8.5.3",
 		"tailwindcss": "^4.0.17",

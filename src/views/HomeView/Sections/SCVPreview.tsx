@@ -1,16 +1,17 @@
 'use client'
 
-import React from 'react'
+import React, {useState} from 'react'
 import {motion} from 'framer-motion'
 import {FiDownload} from 'react-icons/fi'
-import cvPage1 from '@/assets/images/cv_page1.png'
-import cvPage2 from '@/assets/images/cv_page2.png'
+import cvPage1 from '@/assets/svgs/cv_page1.svg'
+import cvPage2 from '@/assets/svgs/cv_page2.svg'
 import Image from 'next/image'
 
 const SCVPreview: React.FC = () => {
 	const cvUrl = '/assets/pdfs/cv.pdf'
 	const fileName = 'CV_Tran Van Hoang_Mobile Developer.pdf'
 	const images = [cvPage1, cvPage2]
+	const [hoveredIdx, setHoveredIdx] = useState<number | null>(null)
 
 	return (
 		<section id='cv' className='w-full min-h-dvh p-2'>
@@ -43,6 +44,12 @@ const SCVPreview: React.FC = () => {
 							}}
 							transition={{type: 'spring', stiffness: 300}}
 							className='flex-1 cursor-pointer'
+							style={{
+								zIndex: hoveredIdx === idx ? 10 : 1,
+								position: 'relative',
+							}}
+							onMouseEnter={() => setHoveredIdx(idx)}
+							onMouseLeave={() => setHoveredIdx(null)}
 						>
 							<Image
 								src={src}
