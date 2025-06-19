@@ -25,6 +25,8 @@ import scshotCoding from '@/assets/images/scshot_coding.png'
 import panda from '@/assets/images/profile_panda.png'
 import {motion} from 'framer-motion'
 import Image from 'next/image'
+import {useRouter} from 'next/navigation'
+import Link from 'next/link'
 
 const skills = [
 	{label: 'Flutter', icon: <SiFlutter className='text-blue-400' />},
@@ -41,10 +43,12 @@ const navItems = [
 	{id: 'experience', label: 'Experience'},
 	{id: 'projects', label: 'Projects'},
 	{id: 'cv', label: 'CV'},
+	{id: 'blog', label: 'Blogs', isExternal: true, href: '/blogs'},
 ]
 
 const SProfile: FC = () => {
 	const [active, setActive] = useState('profile')
+	const router = useRouter()
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -65,6 +69,14 @@ const SProfile: FC = () => {
 		return () => window.removeEventListener('scroll', handleScroll)
 	}, [])
 
+	const handleNavClick = (item: (typeof navItems)[0]) => {
+		if (item.isExternal && item.href) {
+			router.push(item.href)
+		} else {
+			document.getElementById(item.id)?.scrollIntoView({behavior: 'smooth'})
+		}
+	}
+
 	return (
 		<>
 			{/* Navigation Bar */}
@@ -75,11 +87,7 @@ const SProfile: FC = () => {
 				{navItems.map((item) => (
 					<button
 						key={item.id}
-						onClick={() => {
-							document
-								.getElementById(item.id)
-								?.scrollIntoView({behavior: 'smooth'})
-						}}
+						onClick={() => handleNavClick(item)}
 						className={`text-base font-semibold px-3 py-1 rounded-full transition-all duration-200
 							${active === item.id ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md scale-100' : 'text-gray-200 hover:bg-blue-900/60 hover:text-blue-300'}
 						`}
@@ -127,6 +135,12 @@ const SProfile: FC = () => {
 							<span className='flex items-center gap-2'>
 								<FaMapMarkerAlt /> Thu Duc City, Ho Chi Minh City
 							</span>
+							<Link
+								href='/blogs'
+								className='flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-white font-semibold hover:opacity-90 transition-opacity'
+							>
+								Read My Blogs
+							</Link>
 						</div>
 						{/* Social */}
 						<div className='flex gap-3 mt-2'>
